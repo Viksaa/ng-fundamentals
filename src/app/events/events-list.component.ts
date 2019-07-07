@@ -3,6 +3,7 @@ import { EventService } from './shared/event.service';
 import { ToastrService } from '../common/toastr.service';
 import { ActivatedRoute } from '@angular/router';
 import { routerNgProbeToken } from '@angular/router/src/router_module';
+import { IEvent } from './shared/index';
 
 @Component({
     template: `
@@ -19,7 +20,7 @@ import { routerNgProbeToken } from '@angular/router/src/router_module';
 })
 export class EventsListComponent implements OnInit {
 
-    events: any[];
+    events: IEvent[];
 
     constructor(private eventService: EventService, private toastr: ToastrService, private route: ActivatedRoute) { }
 
