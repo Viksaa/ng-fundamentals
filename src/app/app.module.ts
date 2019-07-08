@@ -5,7 +5,8 @@ import {
     EventsListComponent,
     EventThumbnailComponent,
     EventDetailsComponent,
-    CreateEventComponent
+    CreateEventComponent,
+    CreateSessionComponent
 } from './events/index'
 
 import { EventsAppComponent } from './events-app.component';
@@ -30,6 +31,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
         EventDetailsComponent,
         CreateEventComponent,
         Error404Component,
+        CreateSessionComponent
     ],
     providers: [{ provide: 'canDeactivateCreateEvent', useValue: checkDirtyState }],
     bootstrap: [EventsAppComponent]
