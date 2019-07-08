@@ -18,6 +18,9 @@ import { appRoutes } from './routes';
 import { Error404Component } from './errors/404.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CollapsibleWellComponent } from './common/collapsible-well.component';
+import { TOASTR_TOKEN, Toastr } from './common/toastr.service'
+
+let toastr: Toastr = window['toastr'];
 
 @NgModule({
     imports: [
@@ -39,7 +42,16 @@ import { CollapsibleWellComponent } from './common/collapsible-well.component';
         CollapsibleWellComponent,
         DurationPipe
     ],
-    providers: [{ provide: 'canDeactivateCreateEvent', useValue: checkDirtyState }],
+    providers: [
+        {
+            provide: 'canDeactivateCreateEvent',
+            useValue: checkDirtyState
+        },
+        {
+            provide: TOASTR_TOKEN,
+            useValue: toastr
+        }
+    ],
     bootstrap: [EventsAppComponent]
 })
 export class AppModule { }
