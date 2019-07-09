@@ -8,8 +8,9 @@ import {
     CreateEventComponent,
     CreateSessionComponent,
     SessionListComponent,
-    DurationPipe
-} from './events/index'
+    DurationPipe,
+    UpvoteComponent
+} from './events/index';
 
 import { EventsAppComponent } from './events-app.component';
 import { NavBarComponent } from './nav/navbar.component';
@@ -48,6 +49,7 @@ let jQuery = window['$'];
         SessionListComponent,
         CollapsibleWellComponent,
         SimpleModalComponent,
+        UpvoteComponent,
         ModalTriggerDirective,
         DurationPipe,
     ],
