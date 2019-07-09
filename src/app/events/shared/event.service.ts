@@ -1,25 +1,27 @@
 import { Injectable, EventEmitter } from '@angular/core';
-import { Subject, Observable } from 'rxjs';
+import { Subject, Observable, of } from 'rxjs';
 import { IEvent } from './index';
 import { ISession } from './event.model';
+import { HttpClient } from '@angular/common/http';
+import { catchError } from 'rxjs/operators';
 
 @Injectable({
     providedIn: 'root'
 })
 export class EventService {
 
-    // foundSessions: ISession[];
-
-    constructor() { }
+    constructor(private http: HttpClient) { }
 
     getEvents(): Observable<IEvent[]> {
-        let subject = new Subject<IEvent[]>();
-        setTimeout(() => {
-            subject.next(EVENTS);
-            subject.complete();
-        }, 100);
+        return this.http.get<IEvent[]>('/api/events')
+            .pipe(catchError(this.handleError<IEvent[]>('getEvents', [])));
+    }
 
-        return subject;
+    private handleError<T>(operation = 'operation', result?: T) {
+        return (error: any): Observable<T> => {
+            console.error(error);
+            return of(result as T);
+        }
     }
 
     getEvent(id: number): IEvent {
@@ -147,11 +149,7 @@ const EVENTS: IEvent[] = [
         time: '9:00 am',
         price: 950.00,
         imageUrl: '/assets/images/ng-nl.png',
-        location: {
-            address: 'The NG-NL Convention Center & Scuba Shop',
-            city: 'Amsterdam',
-            country: 'Netherlands'
-        },
+        onlineUrl: 'http://ng-nl.org',
         sessions: [
             {
                 id: 1,
