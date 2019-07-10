@@ -6,7 +6,7 @@
             <label for="userName">User Name:</label>
             <em *ngIf="loginForm.controls.userName?.invalid && (loginForm.controls.userName?.touched || mouseoverLogin)">Required</em>
             <input
-                (ngModel)="username"
+                (ngModel)="userName"
                 name="userName"
                 id="userName"
                 type="text"
@@ -34,4 +34,8 @@
         </span>
         <button type="button" class="btn btn-default" (click)="cancel()">Cancel</button>
     </form>
+    <br>
+    <div *ngIf="loginInvalid" class="alert alert-danger">
+        Invalid Login Info
+    </div>
 </div>

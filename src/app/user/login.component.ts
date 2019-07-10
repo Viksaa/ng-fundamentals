@@ -18,14 +18,21 @@ export class LoginComponent implements OnInit {
     username;
     password;
     mouseoverLogin: boolean;
+    loginInvalid: boolean = false;
 
     constructor(private authService: AuthService, private router: Router) { }
 
     ngOnInit() { }
 
     login(formValues) {
-        this.authService.loginUser(formValues.username, formValues.password);
-        this.router.navigate(['/events']);
+        this.authService.loginUser(formValues.userName, formValues.password)
+            .subscribe(response => {
+                if (response)
+                    this.router.navigate(['/events']);
+                else
+                    this.loginInvalid = true;
+
+            });
     }
 
     cancel() {
