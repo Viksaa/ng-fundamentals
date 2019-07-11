@@ -1,6 +1,6 @@
 import { ComponentFixture, async, TestBed } from "@angular/core/testing";
 import { SessionListComponent } from './session-list.component';
-import { DebugElement } from '@angular/core';
+import { DebugElement, NO_ERRORS_SCHEMA } from '@angular/core';
 import { AuthService } from 'src/app/user/auth.service';
 import { VoterService } from './voter.service';
 import { UpvoteComponent } from './upvote.component';
@@ -27,15 +27,15 @@ describe('SessionListComponenet', () => {
             imports: [],
             declarations: [
                 SessionListComponent,
-                UpvoteComponent,
+                // UpvoteComponent,
                 DurationPipe,
-                CollapsibleWellComponent
+                // CollapsibleWellComponent
             ],
             providers: [
                 { provide: AuthService, useValue: mockAuthService },
                 { provide: VoterService, useValue: mockVoterService }
             ],
-            schemas: []
+            schemas: [ NO_ERRORS_SCHEMA ]
         });
     });
 
