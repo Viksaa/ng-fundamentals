@@ -6,7 +6,7 @@
             <label for="userName">User Name:</label>
             <em *ngIf="loginForm.controls.userName?.invalid && (loginForm.controls.userName?.touched || mouseoverLogin)">Required</em>
             <input
-                (ngModel)="userName"
+                (ngModel)="username"
                 name="userName"
                 id="userName"
                 type="text"
