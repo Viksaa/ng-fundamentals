@@ -10,7 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class NavBarComponent implements OnInit {
 
-    searchTerm: string = "";
+    searchTerm = '';
     foundSessions: ISession[];
     events: IEvent[];
 
@@ -26,6 +26,6 @@ export class NavBarComponent implements OnInit {
     ngOnInit() {
         this.eventService.getEvents().subscribe(s => {
             this.events = s;
-        })
+        });
     }
 }

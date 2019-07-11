@@ -1,4 +1,4 @@
-import { ComponentFixture, async, TestBed } from "@angular/core/testing";
+import { ComponentFixture, async, TestBed } from '@angular/core/testing';
 import { SessionListComponent } from './session-list.component';
 import { DebugElement, NO_ERRORS_SCHEMA } from '@angular/core';
 import { AuthService } from 'src/app/user/auth.service';
@@ -15,11 +15,11 @@ describe('SessionListComponenet', () => {
         debugEl: DebugElement;
 
     beforeEach(async () => {
-        let mockAuthService = {
+        const mockAuthService = {
             isAuthenticated: () => true,
             currentUser: { userName: 'joe'}
         };
-        let mockVoterService = {
+        const mockVoterService = {
             userHasVoted: () => true
         };
 

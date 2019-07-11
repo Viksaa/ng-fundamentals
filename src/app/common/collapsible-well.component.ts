@@ -14,7 +14,7 @@ import { Component, OnInit, Input } from '@angular/core';
 
 export class CollapsibleWellComponent implements OnInit {
     @Input() title: string;
-    visable: boolean = true;
+    visable = true;
 
     constructor() { }
 
